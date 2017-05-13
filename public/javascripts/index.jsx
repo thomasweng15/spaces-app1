@@ -34,6 +34,18 @@ class Header extends React.Component {
   }
 }
 
+class Submit extends React.Component {
+  onSubmit() {
+    console.log("hello");
+  }
+
+  render() {
+    return <div id="submit">
+      <button onClick={this.onSubmit}>Contribute</button>
+    </div>
+  }
+}
+
 class App extends React.Component {
   render() {
     const { data } = this.props;
@@ -45,6 +57,7 @@ class App extends React.Component {
 
     return <div>
       <Header headerProps={headerProps} />
+      <Submit />
     </div>
   }
 };
