@@ -93,7 +93,7 @@ class App extends React.Component {
     return <div>
       <Header headerProps={headerProps} />
       <div id="posts">
-        { data.posts.map((post) => <Post postProps={ post } />) }
+        { data.posts.map((post) => <Post postProps={  post} />) }
       </div>
       <Submit />
     </div>

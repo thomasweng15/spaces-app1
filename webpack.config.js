@@ -1,9 +1,16 @@
 var path = require('path');
 var webpack = require('webpack');
- 
+
+var IS_PRODUCTION = process.env.NODE_ENV === 'production';
+
 module.exports = {
+  devtool: IS_PRODUCTION ? 'cheap-module-source-map' : 'eval',
   entry: './public/javascripts/main.js',
-  output: { path: __dirname, filename: 'bundle.js' },
+  output: { 
+    path: path.join(__dirname, 'public'), 
+    filename: 'bundle.js',
+    publicPath: '/public/'
+  },
   module: {
     loaders: [
       {
@@ -23,5 +30,5 @@ module.exports = {
         ]
       }
     ]
-  },
+  }
 };
