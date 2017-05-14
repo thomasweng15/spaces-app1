@@ -125,5 +125,13 @@ if [ -e "$DEPLOYMENT_TARGET/webpack.config.js" ]; then
   cd -> /dev/null
 fi
 
+#4. npm start
+if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  eval $NPM_CMD start
+  exitWithMessageOnError "npm start script failed"
+  cd -> /dev/null
+fi
+
 ##################################################################################################################################
 echo "Finished successfully."
