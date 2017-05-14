@@ -46,6 +46,41 @@ class Submit extends React.Component {
   }
 }
 
+class Link extends React.Component {
+  render() {
+    const { linkProps } = this.props;
+    return <div>Link</div>
+  }
+}
+
+class Discussion extends React.Component {
+  render() {
+    const { discussProps } = this.props;
+    return <div>Discussion</div>
+  }
+}
+
+class Post extends React.Component {
+  render() {
+    const { postProps } = this.props;
+    const { title, url, comments } = postProps;
+
+    var linkProps = {
+      title: title,
+      url: url
+    }
+
+    var discussProps = {
+      comments: comments
+    }
+
+    return <div>
+      <Link linkProps={linkProps}/>
+      <Discussion discussProps={discussProps}/>
+    </div>
+  }
+}
+
 class App extends React.Component {
   render() {
     const { data } = this.props;
@@ -57,6 +92,9 @@ class App extends React.Component {
 
     return <div>
       <Header headerProps={headerProps} />
+      <div id="posts">
+        { data.posts.map((post) => <Post postProps={ post } />) }
+      </div>
       <Submit />
     </div>
   }
