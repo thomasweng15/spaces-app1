@@ -5,7 +5,7 @@ var IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 module.exports = {
   devtool: IS_PRODUCTION ? 'cheap-module-source-map' : 'eval',
-  entry: './public/javascripts/main.js',
+  entry: './src/main.js',
   output: { 
     path: path.join(__dirname, 'public'), 
     filename: 'bundle.js',
