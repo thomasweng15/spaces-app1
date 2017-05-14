@@ -20,16 +20,8 @@ module.exports = {
         },
       },
       {
-        rules: [
-          {
-            test: /\.scss$/,
-            use: [ 
-              { loader: 'style-loader' },
-              { loader: 'css-loader' }, 
-              { loader: 'sass-loader' }
-            ]
-          }
-        ]
+        test: /\.scss$/,
+        loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
       }
     ]
   }
