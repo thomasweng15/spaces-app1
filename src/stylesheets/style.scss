@@ -1,7 +1,17 @@
+$title-font-size: 20px;
+$line-height: 1.4;
+$lines-to-show: 2;
+
 @mixin center() {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+@mixin trunc() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 body {
@@ -21,4 +31,74 @@ a {
   
   background-color: green;
   @include center();
+}
+
+.post {
+  height: 120px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  position: relative;
+  
+  
+  &:first-child {
+    margin-top: 30px;  
+  }
+  
+  &:last-child {
+    margin-bottom: 50px;
+  }
+}
+
+.link_tag,
+.link_tag:visited {
+  color: #111;
+  text-decoration: none;
+}
+
+.link {
+  position: absolute;
+  line-height: 24px;
+  top: -10px;
+  left: 10px;
+  padding: 12px;
+  
+  cursor: pointer;
+  overflow: hidden;
+  
+  width: 200px;
+  height: 90px;
+  box-shadow: 2px 2px 5px #888;
+  background-color: #fff;
+}
+
+.title {
+  position: absolute;
+  font-size: $title-font-size;
+  line-height: $line-height;
+  font-weight: bold;
+  color: #111;
+  
+  display: block;
+  display: -webkit-box;
+  height: $title-font-size*$line-height*$lines-to-show; /* Fallback for non-webkit */
+  max-width: 200px;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  
+  @include trunc();
+}
+
+.subtitle {
+  color: #888;
+  font-size: 11px;
+  position: absolute;
+  bottom: 5px;
+  
+  @include trunc();
+}
+
+.discuss-ctnr {
+  margin-left: 250px;
+  margin-right: 10px;
+  padding: 15px;
 }

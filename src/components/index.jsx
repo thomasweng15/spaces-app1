@@ -29,7 +29,7 @@ class Header extends React.Component {
     const { title, numUsers } = headerProps;
 
     return <div id="header">
-      <div>{title}</div>
+      <h2>{title}</h2>
       <div>{numUsers} members</div>
     </div> 
   }
@@ -50,14 +50,21 @@ class Submit extends React.Component {
 class Link extends React.Component {
   render() {
     const { linkProps } = this.props;
-    return <div>Link</div>
+    const { title, url } = linkProps;
+
+    return <a className="link_tag" target="_blank" href={ url }>
+      <div className="link">
+        <div className="title">{ title }</div>
+        <div className="subtitle">{ url }</div>
+      </div>
+    </a>
   }
 }
 
 class Discussion extends React.Component {
   render() {
     const { discussProps } = this.props;
-    return <div>Discussion</div>
+    return <div className="discuss-ctnr">Discussion</div>
   }
 }
 
@@ -75,7 +82,7 @@ class Post extends React.Component {
       comments: comments
     }
 
-    return <div>
+    return <div className="post">
       <Link linkProps={linkProps}/>
       <Discussion discussProps={discussProps}/>
     </div>
