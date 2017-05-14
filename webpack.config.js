@@ -12,7 +12,15 @@ module.exports = {
         exclude: /node_modules/,
         query: {
           presets: ['es2015', 'react']
-        }
+        },
+      },
+      {
+        rules: [
+          {
+            test: /\.css$/,
+            use: [ 'style-loader', 'css-loader' ]
+          }
+        ]
       }
     ]
   },
