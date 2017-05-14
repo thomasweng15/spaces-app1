@@ -7,7 +7,7 @@ const Server = require('./src/server.js')
 const port = (process.env.PORT || 8080)
 const app = Server.app()
 
-const isProduction = process.env.NODE_ENV == "production";
+const isProduction = app.get('env') === 'production';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));

@@ -10,6 +10,7 @@ let data = {
   },
   "posts": [
     {
+      "id": "0",
       "title": "Hello World",
       "url": "https://www.google.com",
       "comments": [
@@ -63,7 +64,7 @@ class Discussion extends React.Component {
 class Post extends React.Component {
   render() {
     const { postProps } = this.props;
-    const { title, url, comments } = postProps;
+    const { title, url, comments} = postProps;
 
     var linkProps = {
       title: title,
@@ -93,7 +94,7 @@ class App extends React.Component {
     return <div>
       <Header headerProps={headerProps} />
       <div id="posts">
-        { data.posts.map((post) => <Post postProps={  post} />) }
+        { data.posts.map((post) => <Post key={post.id} postProps={post} />) }
       </div>
       <Submit />
     </div>
