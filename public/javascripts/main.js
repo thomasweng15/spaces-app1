@@ -1,2 +1,2 @@
-import '../stylesheets/style.css';
+import '../stylesheets/style.scss';
 import App from './index.jsx';
