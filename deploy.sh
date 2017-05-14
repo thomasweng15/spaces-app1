@@ -117,5 +117,13 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd - > /dev/null
 fi
 
+#4. webpack
+if [ -e "$DEPLOYMENT_TARGET/webpack.config.js" ]; then
+  cd "$DEPLOYMENT_TARGET"
+  eval $NPM_CMD run build
+  exitWithMessageOnError "npm run build script failed"
+  cd -> /dev/null
+fi
+
 ##################################################################################################################################
 echo "Finished successfully."
